@@ -1,20 +1,40 @@
 {
   "name": "sawyerlancer-caesar-scrambler",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "api caesar scrambler",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare" : "npm build",
+    "preversion": "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SawyerLancer/sawyerlancer-caesar-scrambler.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["caesar", "scrambler","caesar-scrambler"],
+  "author": "Nikita Livadchenko",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/SawyerLancer/sawyerlancer-caesar-scrambler/issues"
   },
-  "homepage": "https://github.com/SawyerLancer/sawyerlancer-caesar-scrambler#readme"
+  "files": [
+    "lib/**/*"
+  ],
+  "homepage": "https://github.com/SawyerLancer/sawyerlancer-caesar-scrambler#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.3",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.6.2"
+  }
 }
