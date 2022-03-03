@@ -1,24 +1,28 @@
 {
   "name": "sawyerlancer-caesar-scrambler",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "api caesar scrambler",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare" : "npm build",
+    "prepare": "npm run build && webpack",
     "preversion": "npm run lint",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SawyerLancer/sawyerlancer-caesar-scrambler.git"
   },
-  "keywords": ["caesar", "scrambler","caesar-scrambler"],
+  "keywords": [
+    "caesar",
+    "scrambler",
+    "caesar-scrambler"
+  ],
   "author": "Nikita Livadchenko",
   "license": "MIT",
   "bugs": {
@@ -35,6 +39,9 @@
     "ts-jest": "^27.1.3",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.6.2"
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^4.6.2",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
   }
 }
